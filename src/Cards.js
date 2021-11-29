@@ -4,7 +4,7 @@ import {
   Card,
   CardActionArea,
   CardContent,
-  CardMedia,
+  /* CardMedia, */
   makeStyles,
   Paper,
   Typography
@@ -19,30 +19,31 @@ const useStyles = makeStyles((theme) => ({
     flexWrap: "wrap",
     "& > *": {
       margin: theme.spacing(1),
-      width: theme.spacing(40),
+      width: theme.spacing(35),
       height: theme.spacing(35)
     }
   }
 }));
 
-export default function SimplePaper({
+export default function Cards({
   totalDifficulty,
   totalTransactions,
   blockNo,
-  blockMiner
+  blockMiner,
+  isPause
 }) {
   const classes = useStyles();
 
   return (
     <div className={classes.root} style={{}}>
       <Paper variant="outlined">
-        <Card className={classes.root}>
+        <Card className={classes.root} style={{background: "blanchedalmond"}}>
           <CardActionArea>
-          {/*  <CardMedia
+          {/*   <CardMedia
           className={classes.media}
-          image="src\images\0_1mxneoYpQDTrYfVW.gif"
+          image="D:\react-web3\client\src\images\Mining.gif"
           title="Contemplative Reptile"
-        />  */}
+        /> */} 
             <CardContent>
               <Typography gutterBottom variant="h4" component="h2">
                 Block Number
@@ -52,14 +53,15 @@ export default function SimplePaper({
                 color="textSecondary"
                 component="p"
               >
-                {blockNo ? blockNo : <DataLoading />}
+               {/*  {blockNo ? blockNo : <DataLoading />} */}
+               {blockNo ? isPause === false ? blockNo : null : <DataLoading/>}
               </Typography>
             </CardContent>
           </CardActionArea>
         </Card>
       </Paper>
       <Paper variant="outlined">
-        <Card className={classes.root}>
+        <Card className={classes.root}  style={{background: "blanchedalmond"}} >
           <CardActionArea>
             {/* <CardMedia
           className={classes.media}
@@ -67,7 +69,7 @@ export default function SimplePaper({
           title="Contemplative Reptile"
         /> */}
             <CardContent>
-              <Typography gutterBottom variant="h4" component="h2">
+              <Typography gutterBottom variant="h4" component="h2" >
                 Total Transactions
               </Typography>
               <Typography
@@ -76,14 +78,14 @@ export default function SimplePaper({
                 color="textSecondary"
                 component="p"
               >
-                {totalTransactions ? totalTransactions : <DataLoading />}
+                {totalTransactions ? isPause === false ? totalTransactions : null : <DataLoading/>}
               </Typography>
             </CardContent>
           </CardActionArea>
         </Card>
       </Paper>
       <Paper variant="outlined">
-        <Card className={classes.root}>
+        <Card className={classes.root} style={{background: "blanchedalmond"}}>
           <CardActionArea>
             {/* <CardMedia
           className={classes.media}
@@ -100,20 +102,14 @@ export default function SimplePaper({
                 color="textSecondary"
                 component="p"
               >
-                {blockMiner ? (
-                  blockMiner
-                    .substring(0, 7)
-                    .concat("...", blockMiner.substring(37, 42))
-                ) : (
-                  <DataLoading />
-                )}
+                {blockMiner ? isPause === false ? (blockMiner.substring(0, 7).concat("...", blockMiner.substring(37, 42))) : null : <DataLoading />}
               </Typography>
             </CardContent>
           </CardActionArea>
         </Card>
       </Paper>
       <Paper variant="outlined">
-        <Card className={classes.root}>
+        <Card className={classes.root} style={{background: "blanchedalmond"}}>
           <CardActionArea>
             {/* <CardMedia
           className={classes.media}
@@ -130,7 +126,7 @@ export default function SimplePaper({
                 color="textSecondary"
                 component="p"
               >
-                {totalDifficulty ? totalDifficulty : <DataLoading />}
+                {totalDifficulty ? isPause === false ?  totalDifficulty : null : <DataLoading />}
               </Typography>
             </CardContent>
           </CardActionArea>
