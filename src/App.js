@@ -35,11 +35,11 @@ export default function App() {
         console.log(e);
       }
     }
-    Go();
-      /* let interval = setInterval(() => {
+    //Go();
+    let interval = setInterval(() => {
       Go();
     }, 5000);
-    return () => clearInterval(interval); */
+    return () => clearInterval(interval);
   }, []);
   return (
     <div className="App" >
