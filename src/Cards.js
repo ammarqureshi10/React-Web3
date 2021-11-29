@@ -48,7 +48,7 @@ export default function Cards({
               <Typography gutterBottom variant="h4" component="h2">
                 Block Number
               </Typography>
-              <Typography
+              <Typography style={{ fontSize: "large" }}
                 variant="body2"
                 color="textSecondary"
                 component="p"
